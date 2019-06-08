@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingTop="50dp"
     tools:context=".RemindAddActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -21,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="添加提醒"
+            android:text="发送互动"
             android:textSize="20sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
@@ -55,6 +56,8 @@
 
     <View
         android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_height="2dp"
         android:background="@drawable/dash_line" />
 
@@ -63,30 +66,32 @@
         android:layout_height="60dp">
 
         <TextView
-            android:id="@+id/send_content"
+            android:id="@+id/send_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
-            android:text="发送内容:"
+            android:text="发送主题:"
             android:textColor="#7d8582"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/send_content_edit_text"
+            android:id="@+id/send_title_edit_text"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/send_content"
+            android:layout_toEndOf="@id/send_title"
             android:background="@null"
-            android:hint="记得吃维生素片"
+            android:hint="和宝宝去游乐场"
             android:textSize="20sp" />
 
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_height="2dp"
         android:background="@drawable/dash_line" />
 
@@ -95,132 +100,112 @@
         android:layout_height="60dp">
 
         <TextView
-            android:id="@+id/remind_time"
+            android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
-            android:text="提醒时间:"
+            android:text="互动内容:"
             android:textColor="#7d8582"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/remind_time_text"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txt_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/remind_time"
+            android:layout_toEndOf="@id/content"
             android:background="@null"
             android:textSize="20sp"
-            tools:text="2019年8月4日 14:00" />
+            tools:text="这是和宝宝第一次去游乐场" />
 
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_height="2dp"
+        android:background="@drawable/dash_line" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@null"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:text="添加照片/视频:"
+            android:textColor="#7d8582"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/selected_photo"
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_height="2dp"
         android:background="@drawable/dash_line" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp">
 
         <TextView
-            android:id="@+id/repeat"
+            android:id="@+id/txt_add_audio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:text="重复:"
+            android:text="添加语音:"
             android:textColor="#7d8582"
             android:textSize="20sp" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <TextView
+            android:id="@+id/txt_audio_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp" />
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/txt_add_audio"
+            android:background="@drawable/blue_round_rect"
+            android:gravity="center"
+            android:text="点击录音"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="2dp"
+            android:textColor="#ff9d7cf4"
+            android:textSize="20sp" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/repeat_select"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical">
+        android:layout_height="100dp"
+        android:background="@null" />
 
-        <TextView
-            android:id="@+id/every_day"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="每天"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold"
-            android:textSize="20sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/dash_line" />
-
-        <TextView
-            android:id="@+id/every_week"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="每周"
-            android:textSize="20sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/dash_line" />
-
-        <TextView
-            android:id="@+id/every_two_week"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="每两周"
-            android:textSize="20sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/dash_line" />
-
-        <TextView
-            android:id="@+id/every_month"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="每月"
-            android:textSize="20sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/dash_line" />
-
-        <TextView
-            android:id="@+id/every_year"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="每年"
-            android:textSize="20sp" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_gravity="center"
+        android:layout_width="373dp"
+        android:layout_height="60dp"
+        android:text="确认"
+        android:textColor="#fafafa"
+        android:background="@drawable/round_button"/>
 
 </LinearLayout>

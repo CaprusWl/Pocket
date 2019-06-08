@@ -1,6 +1,7 @@
 package com.example.pocket.memo
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pocket.MemoryAdapter
+import com.example.pocket.MemoryAddActivity
 import com.example.pocket.R
 import com.example.pocket.bean.MemoryItem
 import com.example.pocket.data.Date
@@ -49,6 +51,12 @@ class MemoFragment : Fragment() {
             }
 
         })
+
+        view.btn_add_memory.setOnClickListener {
+            val intent = Intent(activity, MemoryAddActivity::class.java)
+            startActivity(intent)
+        }
+
         return view
     }
 
