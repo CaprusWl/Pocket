@@ -16,6 +16,7 @@ import com.example.pocket.data.Date
 import com.example.pocket.date.DateDialog
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_memo.*
+import kotlinx.android.synthetic.main.fragment_memo.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,6 +34,21 @@ class MemoFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_memo, container, false)
         init(view)
+        view.memo_tabLayout.addOnTabSelectedListener(object :
+            TabLayout.BaseOnTabSelectedListener<TabLayout.Tab> {
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                if (tab.position == 0)
+                    adapter.eventList = memoryList
+                else
+                    adapter.eventList = arrayListOf()
+                adapter.notifyDataSetChanged()
+            }
+
+        })
         return view
     }
 
