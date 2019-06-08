@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
+import androidx.fragment.app.FragmentManager
+import com.example.pocket.memo.MemoFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,5 +18,6 @@ class MainActivity : AppCompatActivity() {
         pager.adapter = MyFragmentPagerAdapter(supportFragmentManager, fragmentList)
 
         pager.currentItem = 0
+
     }
 }
