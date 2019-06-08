@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
+
+    <com.github.vipulasri.timelineview.TimelineView
+        android:id="@+id/timeline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        app:marker="@drawable/timeline_marker"
+        app:endLineColor="#D1D1D1"
+        app:linePadding="5dp"
+        app:lineStyle="dash"
+        app:lineWidth="2dp"
+        app:markerInCenter="false"
+        app:markerSize="15dp"
+        app:lineStyleDashLength="5dp"
+        app:lineStyleDashGap="5dp"
+        app:startLineColor="#D1D1D1" />
+
+    <RelativeLayout
+        android:layout_marginStart="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:paddingTop="2dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:text="7月27日"
+            android:textColor="#7D8582"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_from_whom"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_date"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/blue_round_rect"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="2dp"
+            android:textColor="#ff9d7cf4"
+            tools:text="来自：乖乖" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/txt_date"
+            android:textColor="#424242"
+            android:layout_marginStart="25dp"
+            android:text="北京市一日游"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/txt_content_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="共12张照片, 2段视频"
+            android:textSize="15sp"
+            android:textColor="#7D8582"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="9dp"
+            android:layout_below="@+id/txt_title"
+            android:layout_toEndOf="@+id/txt_from_whom"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/txt_from_whom"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
