@@ -65,9 +65,9 @@ class RemindFragment : Fragment() {
             }
 
         })
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis()))
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis()))
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis()))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
         adapter = RemindRecycAdapter(eventList)
         remind_event_recycler.adapter = adapter
         remind_event_recycler.layoutManager = LinearLayoutManager(context)
