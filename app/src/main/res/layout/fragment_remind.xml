@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RemindFragment">
+
+    <TextView
+        android:id="@+id/time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="31dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        tools:text="09:41" />
+
+    <ImageView
+        android:id="@+id/weather_image"
+        android:layout_width="96dp"
+        android:layout_height="133dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/weather" />
+
+    <TextView
+        android:id="@+id/remind_date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_text"
+        android:layout_alignStart="@+id/time_text"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff7d8582"
+        tools:text="2019年8月4日" />
+
+    <ImageView
+        android:id="@+id/remind_date_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/remind_date_text"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/remind_date_text"
+        android:src="@mipmap/change_date" />
+    
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/remind_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/weather_image"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/remind_event_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/remind_tablayout"
+        android:layout_marginTop="10dp"
+        tools:itemCount="5"
+        tools:listitem="@layout/remind_card"/>
+
+</RelativeLayout>

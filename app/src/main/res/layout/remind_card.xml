@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="411dp"
-    android:layout_height="136dp"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
     android:background="@mipmap/card_parent">
 
-    <!--<ImageView-->
-    <!--android:layout_width="20dp"-->
-    <!--android:layout_height="20dp"-->
-    <!--android:layout_marginStart="28dp"-->
-    <!--android:layout_marginTop="24dp"-->
-    <!--android:src="@drawable/origin_dot" />-->
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/origin_dot" />
 
     <TextView
         android:id="@+id/event_name_text"
@@ -54,6 +54,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
+        android:visibility="gone"
         android:src="@mipmap/finish" />
 
 </RelativeLayout>
