@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.example.pocket.memo.MemoFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
@@ -19,9 +20,8 @@ class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionLi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fragmentList.add(TestFragment.newInstance(1))
+        fragmentList.add(MemoFragment())
         fragmentList.add(RemindFragment.newInstance())
-        fragmentList.add(TestFragment.newInstance(1))
         pager.adapter = MyFragmentPagerAdapter(supportFragmentManager, fragmentList)
         pager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
             override fun onPageSelected(position : Int) {

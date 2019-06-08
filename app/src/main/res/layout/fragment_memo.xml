@@ -1,87 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:id="@+id/relativeLayout"
-	tools:context=".memo.MemoFragment">
-
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:layout_marginTop="10dp"
-		android:layout_alignParentEnd="true"
-		android:layout_marginEnd="22dp"
-		>
-
-		<ImageView
-			android:layout_width="24dp"
-			android:layout_height="24dp"
-			android:src="@drawable/plus_circle" />
-
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="match_parent"
-			android:text="新建"
-			android:textAlignment="center"
-			android:textSize="18sp" />
-	</LinearLayout>
+	android:id="@+id/relativeLayout">
 
 	<androidx.cardview.widget.CardView
-		android:layout_width="379dp"
-		android:layout_height="213dp"
-		android:layout_marginTop="50dp"
-		android:layout_marginStart="16dp"
-		android:layout_marginEnd="15dp"
-		>
+		android:id="@+id/top_layout"
+		android:layout_width="match_parent"
+		android:layout_height="150dp">
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginStart="30dp"
-			android:layout_marginTop="18dp"
-			android:textSize="15sp"
-			android:text="查看范围"/>
-		
 		<com.google.android.material.tabs.TabLayout
 			android:id="@+id/memo_tabLayout"
 			android:layout_width="303dp"
 			android:layout_height="22dp"
-			android:layout_marginTop="55dp"
+			android:layout_marginTop="115dp"
 			android:layout_gravity="center_horizontal"
 			app:tabRippleColor="@android:color/transparent"
 			>
 
 		</com.google.android.material.tabs.TabLayout>
 
-		<TextView
-			android:layout_width="wrap_content"
+		<LinearLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="30dp"
-			android:layout_marginTop="111dp"
-			android:textSize="15sp"
-			android:text="日期范围"/>
+			android:layout_marginTop="60dp"
+			android:orientation="horizontal">
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="148dp"
-			android:layout_marginStart="31dp"
-			android:textSize="20sp"
-			android:text="未选择"
-			/>
+			<View
+				android:layout_width="20dp"
+				android:layout_height="match_parent"/>
 
-		<ImageView
-			android:layout_width="83dp"
-			android:layout_height="24dp"
-			android:layout_marginTop="149dp"
-			android:layout_marginStart="111dp"
-			android:src="@drawable/change_date"
-			/>
+			<TextView
+				android:layout_width="250dp"
+				android:layout_height="wrap_content"
+				android:textSize="18sp"
+				android:layout_marginStart="20dp"
+				android:text="未选择"
+				android:id="@+id/time_range"
+				/>
+
+			<ImageView
+				android:layout_width="70dp"
+				android:layout_height="24dp"
+				android:src="@drawable/change_date"
+				android:layout_gravity="end"
+				android:id="@+id/change_date"
+				/>
+
+		</LinearLayout>
 
 	</androidx.cardview.widget.CardView>
 
+	<View
+		android:id="@+id/gap_view"
+		android:layout_below="@+id/top_layout"
+		android:layout_width="match_parent"
+		android:layout_height="10dp"/>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/memory_recycler"
+		android:scrollbars="vertical"
+		android:layout_margin="10dp"
+		android:layout_below="@+id/gap_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"/>
 
 </RelativeLayout>
