@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/relativeLayout"
+	tools:context=".memo.MemoFragment">
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_marginTop="10dp"
+		android:layout_alignParentEnd="true"
+		android:layout_marginEnd="22dp"
+		>
+
+		<ImageView
+			android:layout_width="24dp"
+			android:layout_height="24dp"
+			android:src="@drawable/plus_circle" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:text="新建"
+			android:textAlignment="center"
+			android:textSize="18sp" />
+	</LinearLayout>
+
+	<androidx.cardview.widget.CardView
+		android:layout_width="379dp"
+		android:layout_height="213dp"
+		android:layout_marginTop="50dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="15dp"
+		>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="30dp"
+			android:layout_marginTop="18dp"
+			android:textSize="15sp"
+			android:text="查看范围"/>
+		
+		<com.google.android.material.tabs.TabLayout
+			android:id="@+id/memo_tabLayout"
+			android:layout_width="303dp"
+			android:layout_height="22dp"
+			android:layout_marginTop="55dp"
+			android:layout_gravity="center_horizontal"
+			app:tabRippleColor="@android:color/transparent"
+			>
+
+		</com.google.android.material.tabs.TabLayout>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="30dp"
+			android:layout_marginTop="111dp"
+			android:textSize="15sp"
+			android:text="日期范围"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="148dp"
+			android:layout_marginStart="31dp"
+			android:textSize="20sp"
+			android:text="未选择"
+			/>
+
+		<ImageView
+			android:layout_width="83dp"
+			android:layout_height="24dp"
+			android:layout_marginTop="149dp"
+			android:layout_marginStart="111dp"
+			android:src="@drawable/change_date"
+			/>
+
+	</androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
