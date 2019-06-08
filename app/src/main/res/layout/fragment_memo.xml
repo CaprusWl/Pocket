@@ -71,6 +71,7 @@
 			android:layout_marginStart="31dp"
 			android:textSize="20sp"
 			android:text="未选择"
+			android:id="@+id/time_range"
 			/>
 
 		<ImageView
@@ -79,6 +80,7 @@
 			android:layout_marginTop="149dp"
 			android:layout_marginStart="111dp"
 			android:src="@drawable/change_date"
+			android:id="@+id/change_date"
 			/>
 
 	</androidx.cardview.widget.CardView>
