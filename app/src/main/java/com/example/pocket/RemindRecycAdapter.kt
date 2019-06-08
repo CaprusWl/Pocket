@@ -24,7 +24,7 @@ class RemindRecycAdapter(var eventList: List<EventItem>) : RecyclerView.Adapter<
         val date = SimpleDateFormat("MM-dd", Locale.CHINA).format(eventList[position].time)
         holder.eventTimeText.text = date
         holder.finishImage.visibility =
-            if (eventList[position].time > System.currentTimeMillis()) View.VISIBLE else View.GONE
+            if (eventList[position].finished) View.VISIBLE else View.GONE
     }
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
