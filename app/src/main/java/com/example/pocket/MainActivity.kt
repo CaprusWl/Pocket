@@ -17,15 +17,7 @@ class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionLi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-<<<<<<< HEAD
         fragmentList.add(TestFragment.newInstance(1))
-        fragmentList.add(TestFragment.newInstance(2))
-        fragmentList.add(TestFragment.newInstance(3))
-
-        pager.adapter = MyFragmentPagerAdapter(supportFragmentManager, fragmentList)
-
-        pager.currentItem = 2
-=======
         fragmentList.add(RemindFragment.newInstance())
         pager.adapter = MyFragmentPagerAdapter(supportFragmentManager, fragmentList)
 
@@ -39,6 +31,5 @@ class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionLi
 
     override fun onFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
->>>>>>> 896af293e22ccb1307997da4cc661a1caa616398
     }
 }
