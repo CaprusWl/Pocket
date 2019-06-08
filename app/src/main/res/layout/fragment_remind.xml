@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RemindFragment">
 
     <TextView
@@ -25,19 +26,21 @@
 
     <TextView
         android:id="@+id/remind_date_text"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/time_text"
         android:layout_alignStart="@+id/time_text"
         android:layout_marginTop="10dp"
         android:textColor="#ff7d8582"
+        android:text="未选择"
         tools:text="2019年8月4日" />
 
     <ImageView
         android:id="@+id/remind_date_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/remind_date_text"
+        android:padding="10dp"
+        android:layout_below="@+id/time_text"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/remind_date_text"
         android:src="@mipmap/change_date" />
@@ -47,6 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:orientation="horizontal"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="scrollable"
+        app:tabMinWidth="100dp"
         android:layout_below="@+id/weather_image"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -57,5 +64,16 @@
         android:layout_marginTop="10dp"
         tools:itemCount="5"
         tools:listitem="@layout/remind_card"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="27dp"
+        android:scaleType="center"
+        app:fabSize="normal"
+        android:src="@drawable/ic_add_white"/>
 
 </RelativeLayout>
