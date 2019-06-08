@@ -13,8 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        fragmentList.add(TestFragment.newInstance(1))
+        fragmentList.add(TestFragment.newInstance(2))
+        fragmentList.add(TestFragment.newInstance(3))
+
         pager.adapter = MyFragmentPagerAdapter(supportFragmentManager, fragmentList)
 
-        pager.currentItem = 0
+        pager.currentItem = 2
     }
 }

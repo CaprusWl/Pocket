@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
 
-class MyFragmentPagerAdapter(fm: FragmentManager?, private var list: List<Fragment>)
+class MyFragmentPagerAdapter(fm: FragmentManager, private var list: List<Fragment>)
     : FragmentPagerAdapter(fm) {
 
     override fun getItem(p: Int): Fragment {
