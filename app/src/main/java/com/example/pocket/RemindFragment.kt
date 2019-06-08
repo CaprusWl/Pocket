@@ -1,6 +1,7 @@
 package com.example.pocket
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -65,9 +66,9 @@ class RemindFragment : Fragment() {
             }
 
         })
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 1000000, false))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 2000000, false))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 3000000, false))
         adapter = RemindRecycAdapter(eventList)
         remind_event_recycler.adapter = adapter
         remind_event_recycler.layoutManager = LinearLayoutManager(context)
@@ -87,6 +88,28 @@ class RemindFragment : Fragment() {
                 }
                 if (list.isNotEmpty()) {
                     remind_date_text.text = timeRange
+                }
+            }
+        }
+        add_remind_button.setOnClickListener { v: View? ->
+            startActivityForResult(Intent(context, RemindAddActivity::class.java), 1)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            1 -> {
+                if (resultCode == 1) {
+                    eventList.add(
+                        EventItem(
+                            data?.getStringExtra(RemindAddActivity.SEND_CONTENT) ?: "",
+                            "我",
+                            data?.getStringExtra(RemindAddActivity.SEND_TO) ?: "",
+                            data?.getLongExtra(RemindAddActivity.REMIND_TIME, System.currentTimeMillis() + 100000) ?: 0,
+                            false
+                        )
+                    )
+                    adapter.notifyDataSetChanged()
                 }
             }
         }

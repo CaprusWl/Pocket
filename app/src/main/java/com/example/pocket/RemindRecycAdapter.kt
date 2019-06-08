@@ -21,7 +21,7 @@ class RemindRecycAdapter(var eventList: List<EventItem>) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.eventNameText.text = eventList[position].name
         holder.fromText.text = "来自:" + eventList[position].fromID
-        val date = SimpleDateFormat("MM-dd", Locale.CHINA).format(eventList[position].time)
+        val date = SimpleDateFormat("MM-dd HH:mm", Locale.CHINA).format(eventList[position].time)
         holder.eventTimeText.text = date
         holder.finishImage.visibility =
             if (eventList[position].finished) View.VISIBLE else View.GONE
