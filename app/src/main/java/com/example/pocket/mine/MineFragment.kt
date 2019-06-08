@@ -12,7 +12,7 @@ import com.example.pocket.R
 
 
 @Suppress("DEPRECATION")
-class MineFragment : PreferenceFragment() {
+class MineFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +23,7 @@ class MineFragment : PreferenceFragment() {
 
         return inflater.inflate(R.layout.fragment_mine, container, false)
     }
+
 
 
 }
