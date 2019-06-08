@@ -19,53 +19,81 @@
         android:layout_height="0dp"
         android:baselineAligned="false"
         android:orientation="horizontal"
+        android:background="#fff"
         android:layout_weight="1"
         android:weightSum="3">
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/btn_memory"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_memory"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/mem_selected"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:gravity="center"
                 android:text="记忆"/>
 
-        </FrameLayout>
+        </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/btn_tips"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_tips"
+                android:layout_width="27dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/note_unselected"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:gravity="center"
                 android:text="提醒"/>
 
-        </FrameLayout>
+        </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/btn_mine"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_mine"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/mine_unselected"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:gravity="center"
                 android:text="我的"/>
 
-        </FrameLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

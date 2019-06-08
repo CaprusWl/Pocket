@@ -14,7 +14,7 @@ class Date {
     public var month: Int = 6
 
     @ColumnInfo(name = "day")
-    public var day: Int = 8
+    public var day: Int = 9
 
 
 }

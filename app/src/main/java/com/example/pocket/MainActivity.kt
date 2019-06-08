@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionListener {
 
@@ -19,13 +21,53 @@ class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionLi
 
         fragmentList.add(TestFragment.newInstance(1))
         fragmentList.add(RemindFragment.newInstance())
+        fragmentList.add(TestFragment.newInstance(1))
         pager.adapter = MyFragmentPagerAdapter(supportFragmentManager, fragmentList)
+        pager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
+            override fun onPageSelected(position : Int) {
+                selectNav(position)
+            }
+        })
+
+        btn_memory.setOnClickListener {
+            pager.currentItem = 0
+        }
+
+        btn_tips.setOnClickListener {
+            pager.currentItem = 1
+        }
+
+        btn_mine.setOnClickListener {
+            pager.currentItem = 2
+        }
 
         pager.currentItem = 0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.decorView.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             window.statusBarColor = Color.TRANSPARENT
+        }
+    }
+
+    private fun selectNav(index : Int) {
+        when (index) {
+            0 -> {
+                btn_memory.img_memory.background = getDrawable(R.drawable.mem_selected)
+                btn_mine.img_mine.background = getDrawable(R.drawable.mine_unselected)
+                btn_tips.img_tips.background = getDrawable(R.drawable.note_unselected)
+            }
+
+            1 -> {
+                btn_memory.img_memory.background = getDrawable(R.drawable.mem_unselected)
+                btn_mine.img_mine.background = getDrawable(R.drawable.mine_unselected)
+                btn_tips.img_tips.background = getDrawable(R.drawable.note_selected)
+            }
+
+            2 -> {
+                btn_memory.img_memory.background = getDrawable(R.drawable.mem_unselected)
+                btn_mine.img_mine.background = getDrawable(R.drawable.mine_selected)
+                btn_tips.img_tips.background = getDrawable(R.drawable.note_unselected)
+            }
         }
     }
 
