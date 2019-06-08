@@ -2,25 +2,17 @@ package com.example.pocket.memo
 
 
 import android.os.Bundle
-import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.PopupWindow
 import android.widget.TextView
-import android.widget.Toast
-
+import androidx.fragment.app.Fragment
 import com.example.pocket.R
 import com.example.pocket.date.DateDialog
 import com.google.android.material.tabs.TabLayout
-import com.savvi.rangedatepicker.CalendarPickerView
-import com.savvi.rangedatepicker.SubTitle
-import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class MemoFragment : Fragment() {
@@ -55,9 +47,11 @@ class MemoFragment : Fragment() {
                 val list = dialog.dateList
                 val firstDate = list.first()
                 val lastDate = list.last()
-                var timeRange = firstDate.toString()
+                val dateFormat = SimpleDateFormat("MM月dd日", Locale.CHINA)
+                var timeRange = dateFormat.format(firstDate)
                 if (list.size > 1) {
-                    timeRange += ("——$lastDate")
+                    timeRange += "——"
+                    timeRange += dateFormat.format(lastDate)
                 }
                 if (list.isNotEmpty()) {
                     timeRangeText.text = timeRange

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.pocket.memo.MemoFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionListener {
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionLi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fragmentList.add(RemindFragment.newInstance())
+        fragmentList.add(MemoFragment())
         pager.adapter = MyFragmentPagerAdapter(supportFragmentManager, fragmentList)
 
         pager.currentItem = 0

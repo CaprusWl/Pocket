@@ -39,7 +39,7 @@ class DateDialog(context: Context) : Dialog(context, R.style.MyDialog) {
 
         calendar.init(
             lastYear.time, nextYear.time,
-            SimpleDateFormat("MMMM", Locale.CHINA)
+            SimpleDateFormat("MM月", Locale.CHINA)
         )
             .inMode(CalendarPickerView.SelectionMode.RANGE)
 
