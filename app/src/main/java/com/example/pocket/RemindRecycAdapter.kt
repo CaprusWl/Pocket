@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pocket.bean.EventItem
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 class RemindRecycAdapter(var eventList: List<EventItem>) : RecyclerView.Adapter<RemindRecycAdapter.ViewHolder>() {
 

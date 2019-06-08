@@ -11,6 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pocket.bean.EventItem
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_remind.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RemindFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
@@ -32,6 +38,15 @@ class RemindFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        GlobalScope.launch {
+            while (true) {
+                activity?.runOnUiThread {
+                    time_text.text =
+                        SimpleDateFormat("HH:mm", Locale.CHINA).format(System.currentTimeMillis())
+                }
+                delay(1000)
+            }
+        }
         remind_tablayout.addTab(remind_tablayout.newTab().setText("待完成"), true)
         remind_tablayout.addTab(remind_tablayout.newTab().setText("已完成"))
         remind_tablayout.addOnTabSelectedListener(object :
