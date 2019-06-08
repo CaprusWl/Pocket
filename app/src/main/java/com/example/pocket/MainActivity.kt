@@ -1,9 +1,8 @@
 package com.example.pocket
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +17,4 @@ class MainActivity : AppCompatActivity() {
 
         pager.currentItem = 0
     }
-
-
-
 }
