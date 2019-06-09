@@ -49,6 +49,7 @@ class RemindAddActivity : AppCompatActivity() {
             setResult(1, intent)
             finish()
         }
+        remind_time_text.setOnClickListener {  }
     }
 
     fun setRepeatMode(repeatFreq: RepeatFreq) {

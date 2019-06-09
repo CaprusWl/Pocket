@@ -10,7 +10,8 @@ import com.example.pocket.bean.EventItem
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class RemindRecycAdapter(var eventList: List<EventItem>) : RecyclerView.Adapter<RemindRecycAdapter.ViewHolder>() {
+class RemindRecycAdapter(var eventList: List<EventItem>, var isParent: Boolean) :
+    RecyclerView.Adapter<RemindRecycAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.remind_card, parent, false))
@@ -20,7 +21,7 @@ class RemindRecycAdapter(var eventList: List<EventItem>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.eventNameText.text = eventList[position].name
-        holder.fromText.text = "来自:" + eventList[position].fromID
+        holder.fromText.text = if (isParent) "来自:" + eventList[position].fromID else "提醒:" + eventList[position].toID
         val date = SimpleDateFormat("MM-dd HH:mm", Locale.CHINA).format(eventList[position].time)
         holder.eventTimeText.text = date
         holder.finishImage.visibility =

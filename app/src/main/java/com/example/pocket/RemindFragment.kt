@@ -1,5 +1,6 @@
 package com.example.pocket
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -39,8 +40,11 @@ class RemindFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_remind, container, false)
     }
 
+    @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if ((activity as MainActivity).isParent) add_remind_button.visibility = View.GONE
+        else add_remind_button.visibility = View.VISIBLE
         GlobalScope.launch {
             while (true) {
                 activity?.runOnUiThread {
@@ -67,10 +71,10 @@ class RemindFragment : Fragment() {
             }
 
         })
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 1000000, false))
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 2000000, false))
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 3000000, false))
-        adapter = RemindRecycAdapter(eventList)
+        eventList.add(EventItem("记得吃维生素片", "乖乖", "麻麻", System.currentTimeMillis() + 1000000, false))
+        eventList.add(EventItem("给宝宝买一套字帖", "乖乖", "麻麻", System.currentTimeMillis() + 2000000, false))
+        eventList.add(EventItem("晚上小姨来做客", "乖乖", "麻麻", System.currentTimeMillis() + 30000000, false))
+        adapter = RemindRecycAdapter(eventList, (activity as MainActivity).isParent)
         remind_event_recycler.adapter = adapter
         remind_event_recycler.layoutManager = LinearLayoutManager(context)
 
