@@ -17,6 +17,7 @@ import com.example.pocket.bean.MemoryItem
 import com.example.pocket.data.Date
 import com.example.pocket.date.DateDialog
 import com.google.android.material.tabs.TabLayout
+import com.savvi.rangedatepicker.CalendarPickerView
 import kotlinx.android.synthetic.main.fragment_memo.*
 import kotlinx.android.synthetic.main.fragment_memo.view.*
 import java.text.SimpleDateFormat
@@ -82,7 +83,7 @@ class MemoFragment : Fragment() {
         val changeDate = view.findViewById<ImageView>(R.id.change_date)
 
         changeDate.setOnClickListener {
-            val dialog = DateDialog(context!!)
+            val dialog = DateDialog(context!!, CalendarPickerView.SelectionMode.RANGE)
             dialog.show()
             dialog.setOnDismissListener {
                 val list = dialog.dateList
