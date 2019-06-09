@@ -2,6 +2,7 @@ package com.example.pocket.memo
 
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -73,7 +74,7 @@ class MemoFragment : Fragment() {
         memoryList.add(MemoryItem(Date()))
         memoryList.add(MemoryItem(Date()))
         memoryList.add(MemoryItem(Date()))
-        adapter = MemoryAdapter(memoryList)
+        adapter = MemoryAdapter(memoryList, activity as Context)
         memory_recycler.adapter = adapter
         memory_recycler.layoutManager = LinearLayoutManager(context)
     }
@@ -117,7 +118,6 @@ class MemoFragment : Fragment() {
             item.title = data?.getStringExtra("title")!!
             item.photoNum = 1
             item.videoNum = 0
-            Toast.makeText(activity, "hhh${item.title}", Toast.LENGTH_SHORT).show()
             memoryList.add(item)
             adapter.notifyDataSetChanged()
         }
