@@ -12,13 +12,12 @@ import com.savvi.rangedatepicker.CalendarPickerView
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DateDialog(context: Context) : Dialog(context, R.style.MyDialog) {
+class DateDialog(context: Context,var mode: CalendarPickerView.SelectionMode) : Dialog(context, R.style.MyDialog) {
 
     public lateinit var dateList: List<Date>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         this.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val calendarView = View.inflate(context, R.layout.date_picker, null)
@@ -41,7 +40,7 @@ class DateDialog(context: Context) : Dialog(context, R.style.MyDialog) {
             lastYear.time, nextYear.time,
             SimpleDateFormat("MM月", Locale.CHINA)
         )
-            .inMode(CalendarPickerView.SelectionMode.RANGE)
+            .inMode(mode)
 
         calendar.scrollToDate(Date())
 

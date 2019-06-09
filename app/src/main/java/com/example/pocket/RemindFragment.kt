@@ -1,6 +1,7 @@
 package com.example.pocket
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pocket.bean.EventItem
 import com.example.pocket.date.DateDialog
 import com.google.android.material.tabs.TabLayout
+import com.savvi.rangedatepicker.CalendarPickerView
 import kotlinx.android.synthetic.main.fragment_remind.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -65,28 +67,45 @@ class RemindFragment : Fragment() {
             }
 
         })
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
-        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis(), false))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 1000000, false))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 2000000, false))
+        eventList.add(EventItem("记得买", "乖乖", "麻麻", System.currentTimeMillis() + 3000000, false))
         adapter = RemindRecycAdapter(eventList)
         remind_event_recycler.adapter = adapter
         remind_event_recycler.layoutManager = LinearLayoutManager(context)
 
         remind_date_change.setOnClickListener {
-            val dialog = DateDialog(context!!)
+            val dialog = DateDialog(context!!, CalendarPickerView.SelectionMode.SINGLE)
             dialog.show()
             dialog.setOnDismissListener {
                 val list = dialog.dateList
-                val firstDate = list.first()
-                val lastDate = list.last()
-                val dateFormat = SimpleDateFormat("MM月dd日", Locale.CHINA)
-                var timeRange = dateFormat.format(firstDate)
-                if (list.size > 1) {
-                    timeRange += "——"
-                    timeRange += dateFormat.format(lastDate)
-                }
                 if (list.isNotEmpty()) {
-                    remind_date_text.text = timeRange
+                    val date = list.first()
+                    val dateFormat = SimpleDateFormat("MM月dd日", Locale.CHINA)
+                    val time = dateFormat.format(date)
+                    remind_date_text.text = time
+                }
+            }
+        }
+        add_remind_button.setOnClickListener {
+            startActivityForResult(Intent(context, RemindAddActivity::class.java), 1)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            1 -> {
+                if (resultCode == 1) {
+                    eventList.add(
+                        EventItem(
+                            data?.getStringExtra(RemindAddActivity.SEND_CONTENT) ?: "",
+                            "我",
+                            data?.getStringExtra(RemindAddActivity.SEND_TO) ?: "",
+                            data?.getLongExtra(RemindAddActivity.REMIND_TIME, System.currentTimeMillis() + 100000) ?: 0,
+                            false
+                        )
+                    )
+                    adapter.notifyDataSetChanged()
                 }
             }
         }

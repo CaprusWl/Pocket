@@ -16,6 +16,11 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionListener {
 
     private val fragmentList: ArrayList<Fragment> = arrayListOf()
+    private var isParent: Boolean = false
+
+    companion object {
+        val CLIENT_TYPE: String = "client_type"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +54,7 @@ class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionLi
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.statusBarColor = Color.TRANSPARENT
         }
+        isParent = intent.getBooleanExtra(CLIENT_TYPE, false)
     }
 
     private fun selectNav(index : Int) {
