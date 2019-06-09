@@ -88,9 +88,10 @@ class RemindAddActivity : AppCompatActivity() {
                     val minuteInt = timePicker.minute
                     long = dateLong + ((hourInt * 3600) + (minuteInt * 60)) * 1000
                     newDialog.dismiss()
+
+                    remind_time_text.text =
+                        SimpleDateFormat("yyyy年MM月dd日 HH:mm", Locale.CHINA).format(long)
                 }
-                remind_time_text.text =
-                    SimpleDateFormat("yyyy年MM月dd日 HH:mm", Locale.CHINA).format(long)
             }
         }
 
