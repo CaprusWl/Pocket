@@ -108,6 +108,10 @@ class MemoryAddActivity : AppCompatActivity(), EasyPermissions.PermissionCallbac
                 .forResult(REQUEST_CODE_CHOOSE)
         }
 
+        remind_back_button.setOnClickListener {
+            finish()
+        }
+
         btn_commit.setOnClickListener {
             val intent = Intent(this, MemoFragment::class.java)
             intent.putExtra("title", send_title_edit_text.text.toString())

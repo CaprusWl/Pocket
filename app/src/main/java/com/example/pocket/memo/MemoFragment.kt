@@ -12,7 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
+import com.example.pocket.MainActivity
 import com.example.pocket.MemoryAdapter
 import com.example.pocket.MemoryAddActivity
 import com.example.pocket.R
@@ -106,10 +106,8 @@ class MemoFragment : Fragment() {
                     }
                     timeRangeText.text = timeRange
                 }
-
             }
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
