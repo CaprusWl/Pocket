@@ -85,7 +85,7 @@ class RemindFragment : Fragment() {
                 val list = dialog.dateList
                 if (list.isNotEmpty()) {
                     val date = list.first()
-                    val dateFormat = SimpleDateFormat("MM月dd日", Locale.CHINA)
+                    val dateFormat = SimpleDateFormat("YYYY年MM月dd日", Locale.CHINA)
                     val time = dateFormat.format(date)
                     remind_date_text.text = time
                 }

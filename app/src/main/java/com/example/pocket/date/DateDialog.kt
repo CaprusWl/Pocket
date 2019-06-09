@@ -31,10 +31,10 @@ class DateDialog(context: Context,var mode: CalendarPickerView.SelectionMode) : 
         setCancelable(false)
 
         val nextYear = Calendar.getInstance()
-        nextYear.add(Calendar.YEAR, 10)
+        nextYear.add(Calendar.YEAR, 1)
 
         val lastYear = Calendar.getInstance()
-        lastYear.add(Calendar.YEAR, -10)
+        lastYear.add(Calendar.YEAR, -1)
 
         calendar.init(
             lastYear.time, nextYear.time,

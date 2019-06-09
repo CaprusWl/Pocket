@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="wrap_content"
-	android:orientation="vertical"
+	android:layout_height="wrap_content"
 	android:background="@drawable/round_dialog"
-	>
+	android:orientation="vertical">
 
-	<com.savvi.rangedatepicker.CalendarPickerView
-		xmlns:app="http://schemas.android.com/apk/res-auto"
+	<com.savvi.rangedatepicker.CalendarPickerView xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:id="@+id/calendar_view"
 		android:layout_width="330dp"
 		android:layout_height="400dp"
 		android:layout_marginTop="10dp"
 		android:clipToPadding="false"
 		android:scrollbarStyle="outsideOverlay"
-		app:tsquare_headerTextColor="@color/dateTimeRangePickerHeaderTextColor"
-		app:tsquare_orientation_horizontal="false"
 		app:tsquare_dividerColor="#00000000"
-		>
+		app:tsquare_headerTextColor="@color/dateTimeRangePickerHeaderTextColor"
+		app:tsquare_orientation_horizontal="false">
 
 	</com.savvi.rangedatepicker.CalendarPickerView>
 
@@ -26,12 +22,11 @@
 		android:id="@+id/dialog_button"
 		android:layout_width="250dp"
 		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
 		android:layout_marginTop="10dp"
 		android:layout_marginBottom="10dp"
-		android:layout_gravity="center_horizontal"
 		android:background="@drawable/round_button"
 		android:text="下一步"
 		android:textColor="#fafafa"
-		android:textSize="20sp"
-		/>
-		</LinearLayout>
+		android:textSize="20sp" />
+</LinearLayout>

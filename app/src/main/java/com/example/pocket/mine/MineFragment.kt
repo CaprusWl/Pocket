@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.pocket.MainActivity
 
 import com.example.pocket.R
 
@@ -17,8 +18,14 @@ class MineFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+        val isParent = (activity as MainActivity).isParent
 
-        return inflater.inflate(R.layout.fragment_mine, container, false)
+
+        return if (isParent) {
+            inflater.inflate(R.layout.fragment_mine, container, false)
+        } else {
+            inflater.inflate(R.layout.fragment_mine_child, container, false)
+        }
     }
 
 
