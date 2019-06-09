@@ -1,6 +1,7 @@
 package com.example.pocket.memo
 
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.pocket.MemoryAdapter
 import com.example.pocket.MemoryAddActivity
 import com.example.pocket.R
@@ -17,12 +20,18 @@ import com.example.pocket.bean.MemoryItem
 import com.example.pocket.data.Date
 import com.example.pocket.date.DateDialog
 import com.google.android.material.tabs.TabLayout
+import com.zhihu.matisse.Matisse
+import kotlinx.android.synthetic.main.activity_memory_add.*
 import kotlinx.android.synthetic.main.fragment_memo.*
 import kotlinx.android.synthetic.main.fragment_memo.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MemoFragment : Fragment() {
+
+    companion object {
+        val REQUEST_CODE_FETCH_EVENT = 233
+    }
 
     private val titles = arrayOf("全部", "妈妈", "我的")
     private var num: Int = 0
@@ -54,7 +63,7 @@ class MemoFragment : Fragment() {
 
         view.btn_add_memory.setOnClickListener {
             val intent = Intent(activity, MemoryAddActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_FETCH_EVENT)
         }
 
         return view
@@ -104,5 +113,16 @@ class MemoFragment : Fragment() {
 
     }
 
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_FETCH_EVENT && resultCode == Activity.RESULT_OK) {
+            val item = MemoryItem(Date())
+            item.title = data?.getStringExtra("title")!!
+            item.photoNum = 1
+            item.videoNum = 0
+            Toast.makeText(activity, "hhh${item.title}", Toast.LENGTH_SHORT).show()
+            memoryList.add(item)
+            adapter.notifyDataSetChanged()
+        }
+    }
 }
