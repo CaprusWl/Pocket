@@ -83,7 +83,7 @@ class MemoFragment : Fragment() {
         val changeDate = view.findViewById<ImageView>(R.id.change_date)
 
         changeDate.setOnClickListener {
-            val dialog = DateDialog(context!!, CalendarPickerView.SelectionMode.RANGE)
+            val dialog = DateDialog(context!!, CalendarPickerView.SelectionMode.RANGE, true)
             dialog.show()
             dialog.setOnDismissListener {
                 val list = dialog.dateList

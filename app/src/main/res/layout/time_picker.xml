@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+	<TimePicker
+		android:id="@+id/time_picker"
+		android:layout_width="300dp"
+		android:layout_height="match_parent"
+		android:numbersSelectorColor="@color/purple"
+		android:amPmBackgroundColor="@color/purple"
+		android:headerBackground="@color/purple"
+		>
+
+	</TimePicker>
+
+
+	<Button
+		android:id="@+id/dialog_button0"
+		android:layout_width="250dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp"
+		android:background="@drawable/round_button"
+		android:text="下一步"
+		android:textColor="#fafafa"
+		android:textSize="20sp" />
+
+</LinearLayout>

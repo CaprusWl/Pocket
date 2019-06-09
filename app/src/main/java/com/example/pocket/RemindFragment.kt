@@ -79,8 +79,9 @@ class RemindFragment : Fragment() {
         remind_event_recycler.layoutManager = LinearLayoutManager(context)
 
         remind_date_change.setOnClickListener {
-            val dialog = DateDialog(context!!, CalendarPickerView.SelectionMode.SINGLE)
+            val dialog = DateDialog(context!!, CalendarPickerView.SelectionMode.SINGLE, true)
             dialog.show()
+
             dialog.setOnDismissListener {
                 val list = dialog.dateList
                 if (list.isNotEmpty()) {
