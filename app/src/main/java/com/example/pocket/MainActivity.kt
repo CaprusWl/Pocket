@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 class MainActivity : AppCompatActivity(), RemindFragment.OnFragmentInteractionListener {
 
     private val fragmentList: ArrayList<Fragment> = arrayListOf()
-    private var isParent: Boolean = false
+    var isParent: Boolean = false
 
     companion object {
         val CLIENT_TYPE: String = "client_type"
