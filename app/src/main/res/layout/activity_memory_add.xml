@@ -49,7 +49,6 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/send_to"
             android:background="@null"
-            android:hint="妈妈"
             android:textSize="20sp" />
 
     </RelativeLayout>
@@ -83,7 +82,6 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/send_title"
             android:background="@null"
-            android:hint="和宝宝去游乐场"
             android:textSize="20sp" />
 
     </RelativeLayout>
@@ -117,8 +115,7 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/content"
             android:background="@null"
-            android:textSize="20sp"
-            tools:text="这是和宝宝第一次去游乐场" />
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
@@ -150,6 +147,8 @@
 
         <ImageView
             android:id="@+id/selected_photo"
+            android:layout_margin="20dp"
+            android:background="@drawable/place_holder"
             android:layout_width="200dp"
             android:layout_height="200dp" />
 
@@ -177,9 +176,9 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/txt_audio_title"
+            android:id="@+id/btn_add_audio"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/txt_add_audio"
@@ -187,11 +186,9 @@
             android:gravity="center"
             android:text="点击录音"
             android:paddingLeft="8dp"
-            android:paddingTop="2dp"
             android:paddingRight="8dp"
-            android:paddingBottom="2dp"
             android:textColor="#ff9d7cf4"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <View

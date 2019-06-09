@@ -2,6 +2,7 @@ package com.example.pocket
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.Typeface.BOLD
 import android.os.Build
@@ -42,6 +43,13 @@ class RemindAddActivity : AppCompatActivity() {
                 repeat_select.visibility = View.GONE
             }
         }
+
+        window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.statusBarColor = Color.TRANSPARENT
+        }
+
         remind_time_text.text =
             SimpleDateFormat("yyyy年MM月dd日 HH:mm", Locale.CHINA).format(System.currentTimeMillis())
         every_day.setOnClickListener { setRepeatMode(Companion.RepeatFreq.EVERY_DAY) }

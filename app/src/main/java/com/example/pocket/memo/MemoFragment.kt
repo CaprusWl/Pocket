@@ -1,6 +1,8 @@
 package com.example.pocket.memo
 
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.pocket.MainActivity
 import com.example.pocket.MemoryAdapter
 import com.example.pocket.MemoryAddActivity
 import com.example.pocket.R
@@ -24,6 +28,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MemoFragment : Fragment() {
+
+    companion object {
+        val REQUEST_CODE_FETCH_EVENT = 233
+    }
 
     private val titles = arrayOf("全部", "妈妈", "我的")
     private var num: Int = 0
@@ -55,7 +63,7 @@ class MemoFragment : Fragment() {
 
         view.btn_add_memory.setOnClickListener {
             val intent = Intent(activity, MemoryAddActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_FETCH_EVENT)
         }
 
         return view
@@ -66,7 +74,7 @@ class MemoFragment : Fragment() {
         memoryList.add(MemoryItem(Date()))
         memoryList.add(MemoryItem(Date()))
         memoryList.add(MemoryItem(Date()))
-        adapter = MemoryAdapter(memoryList)
+        adapter = MemoryAdapter(memoryList, activity as Context)
         memory_recycler.adapter = adapter
         memory_recycler.layoutManager = LinearLayoutManager(context)
     }
@@ -99,11 +107,19 @@ class MemoFragment : Fragment() {
                     }
                     timeRangeText.text = timeRange
                 }
-
             }
         }
-
     }
 
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_FETCH_EVENT && resultCode == Activity.RESULT_OK) {
+            val item = MemoryItem(Date())
+            item.title = data?.getStringExtra("title")!!
+            item.photoNum = 1
+            item.videoNum = 0
+            memoryList.add(item)
+            adapter.notifyDataSetChanged()
+        }
+    }
 }
